@@ -55,7 +55,6 @@ $ docker run -d --restart=always --name=letsencrypt \
 ```
 
 3. Start the dockuwiki container with your domain name and email:
-
 ```bash
 $ docker run -d --restart=always --name=wiki \
 -e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:USERNAME/wiki.git \
