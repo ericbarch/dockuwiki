@@ -1,5 +1,5 @@
 # DockuWiki
-A good old fashioned self backup-ing doku**wiki** in a box (container).
+A good old fashioned self backup-ing doku**wiki** in a box.
 
 
 ### But what is it?
@@ -18,11 +18,7 @@ We tried to be cute by combining "Docker" and "Doku". Get it? Hah!
 1. Create a git repo somewhere that the docker host can access. Just don’t commit anything to it! In step 2, let’s pretend you used BitBucket for hosting the repo.
 
 
-2. ```bash
-$ docker run -d --restart=always --name=wiki \
--e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:USERNAME/wiki.git \
--p 3000:3000 ericbarch/dockuwiki
-```
+2. ```$ docker run -d --restart=always --name=wiki -e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:USERNAME/wiki.git -p 3000:3000 ericbarch/dockuwiki```
 
 
 3. On the first run, the container will generate a unique SSH key. ```docker logs wiki``` to get the public key of the wiki’s git user that needs to be added to your git server host.
@@ -78,12 +74,7 @@ Sure, we’re not going to tell you how to live your life:
 1. Follow the steps that these awesome guys put together: http://blog.hypriot.com/post/run-docker-rpi3-with-wifi/
 
 
-2. Then just:
-```bash
-$ docker run -d --restart=always --name=wiki \
--e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:USERNAME/wiki.git \
--p 3000:3000 ericbarch/dockuwiki:rpi
-```
+2. ```$ docker run -d --restart=always --name=wiki -e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:USERNAME/wiki.git -p 3000:3000 ericbarch/dockuwiki:rpi```
 
 
 ### Got any config recommendations?
