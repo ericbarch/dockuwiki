@@ -11,7 +11,7 @@ We wanted a dead simple method of setting up wikis without hassle. Using a git r
 
 
 ### I don’t get the name
-We tried to be cute by combining “Docker” and “Doku”. Get it? Hah!
+We tried to be cute by combining "Docker" and "Doku". Get it? Hah!
 
 
 ### How do I use it?
@@ -59,8 +59,8 @@ $ docker run -d --restart=always --name=letsencrypt \
 ```bash
 $ docker run -d --restart=always --name=wiki \ 
 -e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:USERNAME/wiki.git \
--e "VIRTUAL_HOST=foo.bar.com" -e “LETSENCRYPT_HOST=foo.bar.com“ \
--e “LETSENCRYPT_EMAIL=youremail@yourdomain.com” ericbarch/dockuwiki
+-e VIRTUAL_HOST=foo.bar.com -e LETSENCRYPT_HOST=foo.bar.com \
+-e LETSENCRYPT_EMAIL=youremail@yourdomain.com ericbarch/dockuwiki
 ```
 
 
