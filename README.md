@@ -3,7 +3,7 @@ A good old fashioned self backup-ing doku**wiki** in a box.
 
 
 ### But what is it?
-A self installing instance of the venerable [dokuwiki](https://dokuwiki.org) that backs itself up to a git repo every hour. All wrapped up in a docker image (sorry, bow not included).
+A self installing instance of the venerable [dokuwiki](https://dokuwiki.org) that backs itself up to a git repo every hour. All wrapped up in a docker image (sorry, bow not included). Blog post with details [here](https://tmblr.co/Z_xe3t2FQwujf).
 
 
 ### But why is it?
