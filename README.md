@@ -7,11 +7,11 @@ A self installing instance of the venerable [dokuwiki](https://dokuwiki.org) tha
 
 
 ### But why is it?
-We wanted a dead simple method of setting up wikis without hassle. Using a git repo for backups simplifies deployment and eliminates the need for a host with persistent storage.
+I wanted a dead simple method of setting up wikis without hassle. Using a git repo for backups simplifies deployment and eliminates the need for a host with persistent storage.
 
 
 ### I don’t get the name
-We tried to be cute by combining "Docker" and "Doku". Get it? Hah!
+I tried to be cute by combining "Docker" and "Doku". Get it? Hah!
 
 
 ### How do I use it?
@@ -70,7 +70,7 @@ Honestly, your guess is as good as mine. And that guess is a few simple bash scr
 
 
 ### Can I run it on a Pi?
-Sure, we’re not going to tell you how to live your life:
+Sure, I'm not going to tell you how to live your life:
 
 1. Follow the steps that these awesome guys put together: http://blog.hypriot.com/post/run-docker-rpi3-with-wifi/
 
@@ -79,11 +79,11 @@ Sure, we’re not going to tell you how to live your life:
 
 
 ### Got any config recommendations?
-We live and die by [indexmenu](https://www.dokuwiki.org/plugin:indexmenu), [upgrade](https://www.dokuwiki.org/plugin:upgrade), and [bootstrap3](https://www.dokuwiki.org/template:bootstrap3). You can install all of these from the built in extension manager in your dockuwiki instance.
+I live and die by [indexmenu](https://www.dokuwiki.org/plugin:indexmenu), [upgrade](https://www.dokuwiki.org/plugin:upgrade), and [bootstrap3](https://www.dokuwiki.org/template:bootstrap3). You can install all of these from the built in extension manager in your dockuwiki instance.
 
 
 ### I’m going on vacation to the moon and won’t have internet access. How can I access my wiki?
-No problemo, moon bound traveler. Either take the machine with you that hosts dockuwiki, or use something like a Raspberry Pi to deploy a new instance with the same repo URL. We don’t suggest running multiple instances simultaneously, but your stand in wiki host will collect all your changes and continue attempting to reach the internet until it is safely back on Earth.
+No problemo, moon bound traveler. Either take the machine with you that hosts dockuwiki, or use something like a Raspberry Pi to deploy a new instance with the same repo URL. I don’t suggest running multiple instances simultaneously, but your stand in wiki host will collect all your changes and continue attempting to reach the internet until it is safely back on Earth.
 
 
 ### Who created this?
