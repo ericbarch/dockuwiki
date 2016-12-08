@@ -3,28 +3,37 @@ A good old fashioned self backup-ing doku**wiki** in a box.
 
 
 ### But what is it?
-A self installing instance of the venerable [dokuwiki](https://dokuwiki.org) that backs itself up to a git repo every hour. All wrapped up in a docker image (sorry, bow not included). Blog post with details [here](https://tmblr.co/Z_xe3t2FQwujf).
+A self installing instance of the venerable [dokuwiki](https://dokuwiki.org) that backs itself up to a git repo every hour. All wrapped up in a docker image (sorry, bow not included).
 
 
 ### But why is it?
 I wanted a dead simple method of setting up wikis without hassle. Using a git repo for backups simplifies deployment and eliminates the need for a host with persistent storage.
 
 
-### I don’t get the name
-I tried to be cute by combining "Docker" and "Doku". Get it? Hah!
-
-
 ### How do I use it?
-1. Create a git repo somewhere that the docker host can access. Just don’t commit anything to it! In step 2, let’s pretend you used BitBucket for hosting the repo.
+1. [Install Docker](https://docs.docker.com/engine/installation/) if you haven't already.
 
 
-2. ```$ docker run -d --restart=always --name=wiki -e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:USERNAME/wiki.git -p 3000:3000 ericbarch/dockuwiki```
+2. Create an empty git repo (i.e. BitBucket, GitHub, your own server). In step 3, let’s pretend you created a repo named "wiki" on BitBucket.
 
 
-3. On the first run, the container will generate a unique SSH key. ```docker logs wiki``` to get the public key of the wiki’s git user that needs to be added to your git server host.
+3. ```$ docker run -d --restart=always --name=wiki -e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:YOUR_BITBUCKET_USERNAME/wiki.git -p 3000:3000 ericbarch/dockuwiki```
 
 
-4. Add the SSH key, wait a few moments, and access your freshly minted wiki at http://DOCKERHOST:3000
+4. On the first run, the container will generate a unique SSH key. ```docker logs wiki``` to get the public key. Add this public key to the SSH Keys section of BitBucket, GitHub, your own server, etc.
+
+
+5. Wait a few moments, then access your freshly minted wiki at http://YOUR_DOCKER_HOST_IP:3000
+
+
+### Can I run it on a Pi?
+Sure, I'm not going to tell you how to live your life:
+
+1. Install Docker: ```curl -sSL get.docker.com | sh```
+
+2. Follow the same steps from the "How do I use it?" section above, but replace "ericbarch/dockuwiki" with "ericbarch/dockuwiki:rpi".
+
+3. [Do this](https://i.imgur.com/893Smv1.gif)
 
 
 ### What if I accidentally ignite my thermite packed PC and need to redeploy the wiki to a new machine?
@@ -66,16 +75,11 @@ Nope. TLS only, baby. But that’s where Let’s Encrypt saves the day:
 
 
 ### How does it work?
-Honestly, your guess is as good as mine. And that guess is a few simple bash scripts that fetch the latest stable of dokuwiki and perform an hourly git commit and push.
+[Read up, friend!](https://tmblr.co/Z_xe3t2FQwujf)
 
 
-### Can I run it on a Pi?
-Sure, I'm not going to tell you how to live your life:
-
-1. Follow the steps that these awesome guys put together: http://blog.hypriot.com/post/run-docker-rpi3-with-wifi/
-
-
-2. ```$ docker run -d --restart=always --name=wiki -e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:USERNAME/wiki.git -p 3000:3000 ericbarch/dockuwiki:rpi```
+### I don’t get the name
+I tried to be cute by combining "Docker" and "Doku". Get it? Hah!
 
 
 ### Got any config recommendations?
