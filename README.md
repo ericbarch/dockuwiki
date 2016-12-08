@@ -43,7 +43,7 @@ Just run the same docker command again and add the new SSH key it generates. If 
 ### Can I get that with SSL?
 Nope. TLS only, baby. But that’s where Let’s Encrypt saves the day:
 
-1. Start nginx with the 3 volumes declared:
+1. Start the nginx container:
     ```bash
     $ docker run -d --restart=always --name=nginxproxy \
         -p 80:80 -p 443:443 \
@@ -55,7 +55,7 @@ Nope. TLS only, baby. But that’s where Let’s Encrypt saves the day:
         jwilder/nginx-proxy
     ```
 
-2. Start the let’s encrypt container:
+2. Start the Let’s Encrypt container:
     ```bash
     $ docker run -d --restart=always --name=letsencrypt \
         --volumes-from nginx-proxy \
@@ -63,10 +63,10 @@ Nope. TLS only, baby. But that’s where Let’s Encrypt saves the day:
         jrcs/letsencrypt-nginx-proxy-companion
     ```
 
-3. Start the dockuwiki container with your domain name and email:
+3. Start the Dockuwiki container with your domain name and email:
     ```bash
     $ docker run -d --restart=always --name=wiki \
-    -e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:USERNAME/wiki.git \
+    -e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:YOUR_BITBUCKET_USERNAME/wiki.git \
     -e VIRTUAL_HOST=foo.bar.com -e LETSENCRYPT_HOST=foo.bar.com \
     -e LETSENCRYPT_EMAIL=youremail@yourdomain.com ericbarch/dockuwiki
     ```
