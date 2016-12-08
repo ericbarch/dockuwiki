@@ -31,9 +31,13 @@ Sure, I'm not going to tell you how to live your life:
 
 1. Install Docker: ```curl -sSL get.docker.com | sh```
 
-2. Follow the same steps from the "How do I use it?" section above, but replace "ericbarch/dockuwiki" with "ericbarch/dockuwiki:rpi".
+2. You may see "Sub-process /usr/bin/dpkg returned an error code (1)". This is normal on the first launch!
 
-3. [Do this](https://i.imgur.com/893Smv1.gif)
+3. Give the pi user access to the Docker daemon: ```sudo usermod -a -G docker pi```. Reboot time!
+
+4. Follow the same steps from the "How do I use it?" section above, but replace "ericbarch/dockuwiki" with "ericbarch/dockuwiki:rpi".
+
+5. [Do this](https://i.imgur.com/893Smv1.gif)
 
 
 ### What if I accidentally ignite my thermite packed PC and need to redeploy the wiki to a new machine?
