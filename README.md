@@ -79,7 +79,7 @@ Nope. TLS only, baby. But that’s where Let’s Encrypt saves the day:
 
 
 ### How does it work?
-[Read up, friend!](https://tmblr.co/Z_xe3t2FQwujf)
+[Read up, friend!](https://ericbarch.com/2016/12/03/dockuwiki/)
 
 
 ### I don’t get the name
