@@ -94,9 +94,7 @@ if [ ! -d "$REPO_PATH/.git" ]; then
 		set_perms
 	fi
 else
-	echo 'wiki repo found. attempting push/pull...'
-	# we push in case the repo was created locally but faled initial push
-	git push -u origin master
+	echo 'wiki repo found. attempting pull...'
 	# we pull in case the wiki was modified externally since the last container boot
 	git pull origin master
 fi
