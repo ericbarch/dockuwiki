@@ -8,7 +8,8 @@ SSH_DIRECTORY=$HOME/.ssh
 REPO_PATH=$HOME/web
 WEB_OWNERSHIP=wiki:www-data
 
-# ensure the REMOTE_URL env is set
+# ensure the SSH_DOMAIN and REMOTE_URL envs are set
+[ -z "$SSH_DOMAIN" ] && echo "Need to set SSH_DOMAIN" && exit 1;
 [ -z "$REMOTE_URL" ] && echo "Need to set REMOTE_URL" && exit 1;
 
 # need to check if .ssh dir exists. if not, create it and a key
@@ -20,7 +21,7 @@ if [ ! -d "$SSH_DIRECTORY" ]; then
 
 	# pulling in public key of git server
 	touch $SSH_DIRECTORY/known_hosts
-	ssh-keyscan $(echo "${REMOTE_URL}" | sed -e 's/git@\([a-zA-Z\.]\+\).*/\1/') >> $SSH_DIRECTORY/known_hosts
+	ssh-keyscan $SSH_DOMAIN >> $SSH_DIRECTORY/known_hosts
 
 	# configure git
 	git config --global user.email "wiki@$HOSTNAME"
