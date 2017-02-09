@@ -23,7 +23,7 @@ I wanted a dead simple method of setting up wikis without hassle. Using a git re
 4. On the first run, the container will generate a unique SSH key. ```docker logs wiki``` to get the public key. Add this public key to the SSH Keys section of BitBucket, GitHub, your own server, etc.
 
 
-5. Wait a few moments, then access your freshly minted wiki at http://YOUR_DOCKER_HOST_IP:3000
+5. Wait a few moments, then access your freshly minted wiki at http://YOUR_DOCKER_HOST_IP:3000. The initial configuration page can be accessed at http://YOUR_DOCKER_HOST_IP:3000/install.php.
 
 
 ### Can I run it on a Pi?
