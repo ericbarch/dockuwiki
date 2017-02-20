@@ -20,8 +20,18 @@ if [ ! -d "$SSH_DIRECTORY" ]; then
 	ssh-keygen -t rsa -N "" -f $SSH_DIRECTORY/id_rsa
 
 	# pulling in public key of git server
-	touch $SSH_DIRECTORY/known_hosts
-	ssh-keyscan $SSH_DOMAIN >> $SSH_DIRECTORY/known_hosts
+	while true
+	do
+		if [ -s $SSH_DIRECTORY/known_hosts ]
+		then
+			echo "SSH keys acquired!"
+			break
+		else
+			echo "scanning SSH host for keys..."
+			ssh-keyscan $SSH_DOMAIN > $SSH_DIRECTORY/known_hosts
+			sleep 1
+		fi
+	done
 
 	# configure git
 	git config --global user.email "wiki@$HOSTNAME"
