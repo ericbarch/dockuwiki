@@ -2,7 +2,7 @@
 # ---------------------------------------------
 
 # Used for x86 systems
-FROM debian:8.6
+FROM debian:8.7
 
 MAINTAINER Eric Barch <ebarch@nooplabs.com>
 
