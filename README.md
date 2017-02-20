@@ -40,6 +40,10 @@ Sure, I'm not going to tell you how to live your life:
 5. [Do this](https://i.imgur.com/893Smv1.gif)
 
 
+### What if I want to use this with Let's Encrypt on my Pi?
+Lucky for you, [I wrote a blog post about that](https://ericbarch.com/post/dockuwiki-letsencrypt-pi/)!
+
+
 ### What if I accidentally ignite my thermite packed PC and need to redeploy the wiki to a new machine?
 Just run the same docker command again and add the new SSH key it generates. If dockuwiki finds an existing wiki, it clones and hosts it.
 
