@@ -1,10 +1,10 @@
 # containerwiki
 # ---------------------------------------------
 
-# Used for ARM/pi
-FROM resin/rpi-raspbian:jessie
+# debian w/ ARM qemu
+FROM ericbarch/armv7hf-debian-qemu
 
-MAINTAINER Eric Barch <ebarch@nooplabs.com>
+RUN [ "cross-build-start" ]
 
 # install what we need
 RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y openssh-client nginx php5-fpm \
@@ -43,3 +43,5 @@ EXPOSE 3000
 
 # get the party started
 CMD /home/wiki/start.sh
+
+RUN [ "cross-build-end" ]
