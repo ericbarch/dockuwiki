@@ -7,18 +7,18 @@ FROM ericbarch/armv7hf-debian-qemu
 RUN [ "cross-build-start" ]
 
 # install what we need
-RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y openssh-client nginx php5-fpm \
-    curl php5-gd git supervisor \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get dist-upgrade -y && apt-get install -y openssh-client nginx php-fpm \
+    curl php-gd git supervisor \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # download the latest dokuwiki to /tmp
 RUN cd /tmp && curl -O "https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz"
 
 # make PHP more secure
-RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
+RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php/7.0/fpm/php.ini
 
 # supervisor requires that our processes stay foregrounded
-RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php5/fpm/php-fpm.conf
+RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php/7.0/fpm/php-fpm.conf
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 # clear out any existing configs that ship with nginx
