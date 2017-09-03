@@ -17,6 +17,9 @@ RUN cd /tmp && curl -O "https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stab
 # make PHP more secure
 RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php/7.0/fpm/php.ini
 
+# ensure the pid dir exists for php-fpm
+RUN mkdir -p /run/php
+
 # supervisor requires that our processes stay foregrounded
 RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php/7.0/fpm/php-fpm.conf
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
