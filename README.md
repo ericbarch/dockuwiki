@@ -29,15 +29,13 @@ I wanted a dead simple method of setting up wikis without hassle. Using a git re
 ### Can I run it on a Pi?
 Sure, I'm not going to tell you how to live your life:
 
-1. Install Docker: ```curl -sSL get.docker.com | sh```
+1. Install Docker (it's officially supported for ARM!)
 
-2. You may see "Sub-process /usr/bin/dpkg returned an error code (1)". This is normal on the first launch!
+2. Give the pi user access to the Docker daemon: ```sudo usermod -a -G docker pi```. Reboot time!
 
-3. Give the pi user access to the Docker daemon: ```sudo usermod -a -G docker pi```. Reboot time!
+3. Follow the same steps from the "How do I use it?" section above, but replace "ericbarch/dockuwiki" with "ericbarch/dockuwiki:rpi".
 
-4. Follow the same steps from the "How do I use it?" section above, but replace "ericbarch/dockuwiki" with "ericbarch/dockuwiki:rpi".
-
-5. [Do this](https://i.imgur.com/893Smv1.gif)
+4. [Do this](https://i.imgur.com/893Smv1.gif)
 
 
 ### What if I want to use this with Let's Encrypt on my Pi?

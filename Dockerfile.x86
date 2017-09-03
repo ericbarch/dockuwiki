@@ -2,7 +2,7 @@
 # ---------------------------------------------
 
 # Used for x86 systems
-FROM debian:jessie
+FROM debian:stretch
 
 MAINTAINER Eric Barch <ebarch@nooplabs.com>
 
