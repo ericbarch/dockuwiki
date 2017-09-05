@@ -8,7 +8,7 @@ RUN [ "cross-build-start" ]
 
 # install what we need
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get dist-upgrade -y && apt-get install -y openssh-client nginx php-fpm \
-    curl php-gd git supervisor \
+    curl php-gd git supervisor php-xml \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # download the latest dokuwiki to /tmp
