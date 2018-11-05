@@ -17,7 +17,7 @@ I wanted a dead simple method of setting up wikis without hassle. Using a git re
 2. Create an empty git repo (i.e. BitBucket, GitHub, your own server). In step 3, let’s pretend you created a repo named "wiki" on BitBucket.
 
 
-3. ```$ docker run -d --restart=always --name=wiki -e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:YOUR_BITBUCKET_USERNAME/wiki.git -p 3000:3000 ericbarch/dockuwiki```
+3. ```$ docker run -d --restart=always --name=wiki -e SSH_PORT=22 -e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:YOUR_BITBUCKET_USERNAME/wiki.git -p 3000:3000 ericbarch/dockuwiki```
 
 
 4. On the first run, the container will generate a unique SSH key. ```docker logs wiki``` to get the public key. Add this public key to the SSH Keys section of BitBucket, GitHub, your own server, etc.
@@ -72,7 +72,7 @@ Nope. TLS only, baby. But that’s where Let’s Encrypt saves the day:
 3. Start the Dockuwiki container with your domain name and email:
     ```bash
     $ docker run -d --restart=always --name=wiki \
-    -e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:YOUR_BITBUCKET_USERNAME/wiki.git \
+    -e SSH_PORT=22 -e SSH_DOMAIN=bitbucket.org -e REMOTE_URL=git@bitbucket.org:YOUR_BITBUCKET_USERNAME/wiki.git \
     -e VIRTUAL_HOST=foo.bar.com -e LETSENCRYPT_HOST=foo.bar.com \
     -e LETSENCRYPT_EMAIL=youremail@yourdomain.com ericbarch/dockuwiki
     ```
