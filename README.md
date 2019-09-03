@@ -91,6 +91,8 @@ I tried to be cute by combining "Docker" and "Doku". Get it? Hah!
 ### Got any config recommendations?
 I live and die by [indexmenu](https://www.dokuwiki.org/plugin:indexmenu), [upgrade](https://www.dokuwiki.org/plugin:upgrade), and [bootstrap3](https://www.dokuwiki.org/template:bootstrap3). You can install all of these from the built in extension manager in your dockuwiki instance.
 
+### Can I force a backup?
+Sure! Just run ```docker exec -u wiki wiki /home/wiki/backup_once.sh``` to trigger a backup.
 
 ### I’m going on vacation to the moon and won’t have internet access. How can I access my wiki?
 No problemo, moon bound traveler. Either take the machine with you that hosts dockuwiki, or use something like a Raspberry Pi to deploy a new instance with the same repo URL. I don’t suggest running multiple instances simultaneously, but your stand in wiki host will collect all your changes and continue attempting to reach the internet until it is safely back on Earth.
