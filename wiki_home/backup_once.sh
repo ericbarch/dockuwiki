@@ -9,7 +9,7 @@ cd /home/wiki/web
 
 echo "Backing up wiki @ `date -u`"
 git add -A
-git commit -m "autocommit @ `date -u`"
+git diff-index --quiet HEAD || git commit -m "autocommit @ `date -u`"
 
 git pull origin master
 git push origin master
