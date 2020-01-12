@@ -17,6 +17,10 @@ RUN cd /tmp && curl -O "https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stab
 # make PHP more secure
 RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php/7.0/fpm/php.ini
 
+# up the max payload size
+RUN sed -i 's/^upload_max_filesize.*/upload_max_filesize = 100M/' /etc/php/7.0/fpm/php.ini
+RUN sed -i 's/^post_max_size.*/post_max_size = 100M/' /etc/php/7.0/fpm/php.ini
+
 # ensure the pid dir exists for php-fpm
 RUN mkdir -p /run/php
 
